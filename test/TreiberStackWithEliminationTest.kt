@@ -22,23 +22,6 @@ class TreiberStackWithEliminationTest {
     fun pop(): Int? = q.pop()
 
     @Test
-    fun modelCheckingTest() =  try {
-        ModelCheckingOptions()
-            .iterations(100)
-            .invocationsPerIteration(40_000)
-            .threads(4)
-            .verboseTrace()
-            .actorsPerThread(3)
-            .checkObstructionFreedom()
-            .sequentialSpecification(IntStackSequential::class.java)
-            .logLevel(LoggingLevel.INFO)
-            .check(this::class.java)
-    } catch (t: Throwable) {
-        uploadWrongSolutionToS3("model-checking")
-        throw t
-    }
-
-    @Test
     fun stressTest() = try {
         StressOptions()
             .iterations(100)
