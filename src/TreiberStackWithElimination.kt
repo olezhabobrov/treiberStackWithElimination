@@ -74,6 +74,6 @@ private class Node<E>(val x: E, val next: Node<E>?)
 
 private class Cell<E>(val x: E)
 
-private const val ELIMINATION_ARRAY_SIZE = 2 // DO NOT CHANGE IT
+private const val ELIMINATION_ARRAY_SIZE = 8
 
 private const val WAIT_STEPS = 1000
